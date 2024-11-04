@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "81:81"
+    volumes:
+      - .:/var/www
+    environment:
+      API_BASE_URL: "http://blog-api-api-1:80/api"
+    networks:
+      - kle-blog-network
+
+networks:
+  kle-blog-network:
+    external: true
